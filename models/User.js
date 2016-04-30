@@ -4,7 +4,7 @@ var mongoose = require('mongoose');
 
 var userSchema = new mongoose.Schema({
   email: { type: String, unique: true },
-  password: String,  
+  password: String,
   passwordResetToken: String,
   passwordResetExpires: Date,
 
@@ -14,9 +14,6 @@ var userSchema = new mongoose.Schema({
 
   profile: {
     name: { type: String, default: '' },
-    age: { type: String, default: '' }, 
-    address: { type: String, default: '' }, 
-    cuisines: { type: String, default: '' },  
     gender: { type: String, default: '' },
     location: { type: String, default: '' },
     website: { type: String, default: '' },
