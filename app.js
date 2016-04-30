@@ -65,6 +65,8 @@ app.use(sass({
   dest: path.join(__dirname, 'public'),
   sourceMap: true
 }));
+//Serves all the request which includes /images in the url from Images folder
+app.use(express.static(__dirname + '/public'));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));

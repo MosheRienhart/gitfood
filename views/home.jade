@@ -1,27 +1,39 @@
 extends layout
-
 block content
-  h1 Hackathon Starter
-  p.lead A boilerplate for Node.js web applications.
-  hr
-  .row
-    .col-sm-6
-      h2 Heading
-      p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-      p
-        a.btn.btn-default(href='#', role='button') View details »
-    .col-sm-6
-      h2 Heading
-      p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-      p
-        a.btn.btn-default(href='#', role='button') View details »
-    .col-sm-6
-      h2 Heading
-      p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-      p
-        a.btn.btn-default(href='#', role='button') View details »
-    .col-sm-6
-      h2 Heading
-      p Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-      p
-        a.btn.btn-default(href='#', role='button') View details »
+    .intro-header
+        #myCarousel.carousel.container.slide
+          .carousel-inner
+            .active.item.one
+            .item.two
+            .item.three
+          a.carousel-control.left(href='#myCarousel', data-slide='prev') ‹
+          a.carousel-control.right(href='#myCarousel', data-slide='next') ›
+
+        .container
+          .row
+            .col-lg-12
+              .intro-message
+                h1 GitFood
+                |                         
+                h3 Want a fork?
+                |                         
+                hr.intro-divider
+                |                         
+                ul.list-inline.intro-social-buttons
+                  li
+                    a.btn.btn-default.btn-lg(href='https://twitter.com/SBootstrap')
+                      i.fa.fa-twitter.fa-fw
+                      |  
+                      span.network-name Order Food
+                  |                             
+                  li
+                    a.btn.btn-default.btn-lg(href='https://github.com/IronSummitMedia/startbootstrap')
+                      i.fa.fa-github.fa-fw
+                      |  
+                      span.network-name Make Food
+        // /.container
+      // /.intro-header
+script(type='text/javascript').
+  $(document).ready(function() {
+  $('.carousel').carousel({interval: 7000});
+  });
