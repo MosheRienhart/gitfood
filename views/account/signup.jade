@@ -5,32 +5,39 @@ block content
     h3 Sign up
   form.form-horizontal(id='signup-form', method='POST')
     input(type='hidden', name='_csrf', value=_csrf)
-    .form-group
-      label.col-sm-3.control-label(for='email') Email
-      .col-sm-7
-        input.form-control(type='email', name='email', id='email', placeholder='Email', autofocus, required)
-    .form-group
-      label.col-sm-3.control-label(for='password') Password
-      .col-sm-7
-        input.form-control(type='password', name='password', id='password', placeholder='Password', required)
-    .form-group
-      label.col-sm-3.control-label(for='confirmPassword') Confirm Password
-      .col-sm-7
-        input.form-control(type='password', name='confirmPassword', id='confirmPassword', placeholder='Confirm Password', required)
-    .form-group
-      label.col-sm-3.control-label(for='age') Age
-      .col-sm-7
-        input.form-control(type='text', name='age', id='age', placeholder='18', autofocus, required)
-    .form-group
-      label.col-sm-3.control-label(for='address') Address 
-      .col-sm-7
-        input.form-control(type='text', name='address', id='address', placeholder='123 Way Dr. Los Angeles, CA 94555', autofocus, required)   
-    .form-group
-      label.col-sm-3.control-label(for='cuisines') Cuisine(s)
-      .col-sm-7
-        input.form-control(type='text', name='cuisines', id='cuisines', placeholder='Indian, German, Italian', autofocus, required)
-    .form-group
-      .col-sm-offset-3.col-sm-7
-        button.btn.btn-success(type='submit')
-          i.fa.fa-user-plus
-          | Signup
+    .row
+      .form-group
+        label.col-sm-3.control-label(for='email') Email
+        .col-sm-7
+          input.form-control(type='email', name='email', id='email', placeholder='Email', autofocus, required)
+    .row
+      .form-group
+        label.col-sm-3.control-label(for='password') Password
+        .col-sm-7
+          input.form-control(type='password', name='password', id='password', placeholder='Password', required)
+    .row
+      .form-group
+        label.col-sm-3.control-label(for='confirmPassword') Confirm Password
+        .col-sm-7
+          input.form-control(type='password', name='confirmPassword', id='confirmPassword', placeholder='Confirm Password', required)
+    .row
+      .form-group
+        label.col-sm-3.control-label(for='age') Age
+        .col-sm-7
+          input.form-control(type='text', name='age', id='age', placeholder='18', autofocus, required)
+    .row
+      .form-group
+        label.col-sm-3.control-label(for='address') Address 
+        .col-sm-7
+          input.form-control(type='text', name='address', id='address', placeholder='123 Way Dr. Los Angeles, CA 94555', autofocus, required)   
+    .row
+      .form-group
+        label.col-sm-3.control-label(for='cuisines') Cuisine(s)
+        .col-sm-7
+          input.form-control(type='text', name='cuisines', id='cuisines', placeholder='Indian, German, Italian', autofocus, required)
+    .row
+      .form-group
+        .col-sm-offset-3.col-sm-7
+          button.btn.btn-success(type='submit')
+            i.fa.fa-user-plus
+            | Signup
