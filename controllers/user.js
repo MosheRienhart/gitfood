@@ -82,6 +82,9 @@ exports.postSignup = function(req, res, next) {
   req.assert('email', 'Email is not valid').isEmail();
   req.assert('password', 'Password must be at least 4 characters long').len(4);
   req.assert('confirmPassword', 'Passwords do not match').equals(req.body.password);
+  req.assert('age', 'Age cannot be blank').notEmpty();    
+  req.assert('address', 'Address cannot be blank').notEmpty();  
+  req.assert('cuisines', 'Cuisine(s) cannot be blank').notEmpty();      
   req.sanitize('email').normalizeEmail({ remove_dots: false });
 
   var errors = req.validationErrors();
@@ -146,6 +149,9 @@ exports.postUpdateProfile = function(req, res, next) {
     }
     user.email = req.body.email || '';
     user.profile.name = req.body.name || '';
+    user.profile.age = req.body.age || '';
+    user.profile.address = req.body.address || '';
+    user.profile.cuisines = req.body.cuisines || '';    
     user.profile.gender = req.body.gender || '';
     user.profile.location = req.body.location || '';
     user.profile.website = req.body.website || '';

@@ -14,6 +14,9 @@ var userSchema = new mongoose.Schema({
 
   profile: {
     name: { type: String, default: '' },
+    age: { type: String, default: '' }, 
+    address: { type: String, default: '' }, 
+    cuisines: { type: String, default: '' },    
     gender: { type: String, default: '' },
     location: { type: String, default: '' },
     website: { type: String, default: '' },

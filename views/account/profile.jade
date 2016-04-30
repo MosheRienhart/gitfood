@@ -15,6 +15,18 @@ block content
       .col-sm-7
         input.form-control(type='text', name='name', id='name', value='#{user.profile.name}')
     .form-group
+      label.col-sm-3.control-label(for='age') Age
+      .col-sm-7
+        input.form-control(type='text', name='age', id='age', value='#{user.profile.age}')
+    .form-group
+      label.col-sm-3.control-label(for='name') Address
+      .col-sm-7
+        input.form-control(type='text', name='address', id='address', value='#{user.profile.address}')
+    .form-group
+      label.col-sm-3.control-label(for='name') Cuisine(s)
+      .col-sm-7
+        input.form-control(type='text', name='cuisines', id='cuisines', value='#{user.profile.cuisines}')        
+    .form-group
       label.col-sm-3.control-label(for='gender') Gender
       .col-sm-6
         label.radio.col-sm-3
