@@ -1,9 +1,9 @@
 {
-  "name": "hackathon-starter",
-  "version": "3.5.0",
+  "name": "gitfood",
+  "version": "0.01",
   "repository": {
     "type": "git",
-    "url": "https://github.com/sahat/hackathon-starter.git"
+    "url": "https://github.com/itsmomito/gitfood"
   },
   "scripts": {
     "start": "node app.js",
