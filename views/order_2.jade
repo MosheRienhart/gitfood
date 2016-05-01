@@ -1,5 +1,6 @@
 extends layout
 
+
 block content
   .page-header
     h3 Order Dashboard
@@ -11,24 +12,61 @@ block content
             .progress-bar
           a.bs-wizard-dot(href='#')
           .bs-wizard-info.text-center Choose your recipe!
-        .col-xs-4.bs-wizard-step.disabled
+        .col-xs-4.bs-wizard-step.active
           // complete
           .text-center.bs-wizard-stepnum Step 2
           .progress
             .progress-bar
           a.bs-wizard-dot(href='#')
           .bs-wizard-info.text-center Pick a Chef!
-        .col-xs-4.bs-wizard-step.active
+        .col-xs-4.bs-wizard-step.disabled
           // complete
           .text-center.bs-wizard-stepnum Step 3
           .progress
             .progress-bar
           a.bs-wizard-dot(href='#')
           .bs-wizard-info.text-center Time to eat!
- form.form-horizontal(id='order-form2', method='POST')
+  form.form-horizontal(id='order-form2', method='POST')
     input(type='hidden', name='_csrf', value=_csrf)
     .row
       .form-group
         .col-sm-offset-3.col-sm-7
             button.btn.btn-primary.btn-lg.btn-block.center-block(type='submit')
               | Continue
+script(type='text/javascript').
+  var qualifList = [];
+  (function(){
+  xhrGet.open("GET", 'https://api.mongolab.com/api/1/databases/gitfood/collections/users?apiKey=Q_JEMlpcAh-Ncr44F93GFDlDsTcYaCPE');
+  xhrGet.onreadystatechange = function(){
+  var response = JSON.parse(xhrGet.responseText);
+  for(var i = 0; i < response.length; i++){
+  var n = response[i];
+  var name = n.name;
+  var cuisines = n.cuisines;
+  var status = n.sitepos;
+  console.log(name+"/"+cuisines+"/"+status);
+  //if(cuisines.)
+  qualifList[i]=n;
+  }
+  var length = qualifList.size();
+  for (user in qualifList){
+  (function(){$('row').append(
+  '<div class="col-sm-3">
+  <div class="card">
+  <canvas class="header-bg" width="250" height="70" id="header-blur"></canvas>
+  <div class="avatar">
+  <img src='+user.picture+'/>
+  </div>
+  <div class="content">
+  <p>'+ user.name +'<br>'+
+  user.cuisines+' - ' + user.location+ '</p>
+  <p><button type="button" class="btn btn-default" onclick=" ">Select</button></p>
+  </div>
+  </div>
+  </div>');})();
+  }
+.container
+  .row
+    h1
+      | Nearby Makers
+  .row
