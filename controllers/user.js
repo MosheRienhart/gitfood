@@ -5,6 +5,7 @@ var nodemailer = require('nodemailer');
 var passport = require('passport');
 var User = require('../models/User');
 var position = "Buyer";
+var userEmail = "";
 
 /**
  * GET /login
@@ -48,6 +49,7 @@ exports.postLogin = function(req, res, next) {
         return next(err);
       }
       req.flash('success', { msg: 'Success! You are logged in.' });
+      userEmail = req.body.email;
       res.redirect(req.session.returnTo || '/');
     });
   })(req, res, next);
@@ -96,6 +98,7 @@ exports.postSignup = function(req, res, next) {
     return res.redirect('/signup');
   }
     position = req.body.sitepos;
+    userEmail = req.body.email;
   var user = new User({
     email: req.body.email,
     password: req.body.password,
@@ -149,22 +152,25 @@ exports.postOrder = function(req, res, next) {
     req.flash('errors', errors);
     return res.redirect('/order');
   }
-
-  // get a user with ID of 1
-  User.findById(req.user.id, function(err, user) {
-  if (err) throw err;
-  user.cuisine = req.body.cuisine;
-  user.food = req.body.food;
-  user.radius = req.body.radius;
-  user.recipelink = req.body.recipe;
-  user.textcomments = req.body.comments;
-  user.save(function(err) {
-    if (err) throw err;
-
-    console.log('User successfully updated!');
-  });
-  req.flash('success', "Success!");
-  res.redirect('/order_2');
+  User.findOne({ email: userEmail }, function(err, user) {
+    user.cuisine = req.body.cuisine;
+    user.food = req.body.food;
+    user.radius = req.body.radius;
+    user.recipelink = req.body.recipelink;
+    user.textcomments = req.body.textcomments;
+    user.save(function(err) {
+      if (err) {
+        return next(err);
+      }
+    });
+    console.log(userEmail);
+    console.log(req.body.id);
+    console.log(req.body.cuisine);
+    console.log(req.body.food);
+    console.log(req.body.radius);
+    console.log(req.body.comments)
+    req.flash('success', { msg: 'The order has been heard!' });
+    res.redirect('/order_2');
 });
 };
 
@@ -264,6 +270,7 @@ exports.getLogin = function(req, res) {
   if (req.user) {
     return res.redirect('/');
     position = req.body.sitepos;
+    email = req.body.email;
   }
   res.render('account/login', {
     title: 'Login'
