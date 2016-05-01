@@ -1,7 +1,4 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8" />
+
       <script type="text/javascript" src="https://www.moxtra.com/api/js/moxtra-latest.js" id="moxtrajs"></script>
          <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
     <script>
@@ -62,11 +59,10 @@
         <!-- Start Meet Function  -->
         function start_chat() {
             var options = {
-                email:"octabytes15@gmail.com,itsmomito@gmail.com",
                 iframe: true,
                 tagid4iframe: "container",
-                iframewidth: "1300px",
-                iframeheight: "800px",
+                iframewidth: "800px",
+                iframeheight: "600px",
                 autostart_meet: true,
                 autostart_note: false,
                 start_chat: function(event) {
@@ -99,37 +95,12 @@
             console.log("url: "+url);
             
         }
-        
-        
-            var nodemailer = require("nodemailer");
-            var transporter = nodemailer.createTransport({
-              service: 'SendGrid',
-              auth: {
-                user: process.env.SENDGRID_USER,
-                pass: process.env.SENDGRID_PASSWORD
-              }
-            });
-      var reqMeal="";  
-(function(){
-    xhrGet.open("GET", 'https://api.mongolab.com/api/1/databases/gitfood/collections/users?apiKey=Q_JEMlpcAh-Ncr44F93GFDlDsTcYaCPE');
-    xhrGet.onreadystatechange = function(){
-      var response = JSON.parse(xhrGet.responseText);
-      for(var i = 0; i < response.length; i++){
-        var n = response[i].email;
-        reqMeal = "Veggie burrito";
-        console.log(name+"/"+cuisines+"/"+status);
-        if(n=="dhanush.patel@ymail.com"){
-         reqMeal=response[i].orderfood.food;    
-        }
-      }
-    }})();
     
 
         </script>
         
     </head>
-        <body >
-        <script>getMoxtraToken(); href=start_chat();</script>
+        <body>
+
+                <script>getMoxtraToken(); href=start_chat();</script>
         <div id="chat-container"></div>
-    </body>
-</html>
