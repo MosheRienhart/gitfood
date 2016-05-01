@@ -202,7 +202,7 @@ exports.getSellerList = function(req,res){
 
 exports.authenticateSeller = function(req, res) {
     if (position == "Seller") {
-      return res.redirect('/maker')
+      process.exit();
     }
    req.flash('errors', { msg: 'You have not signed up to be a food preparer' });
   //req.flash('errors', { msg: 'You are not a food preparer' });
