@@ -152,6 +152,7 @@ exports.postOrder = function(req, res, next) {
     req.flash('errors', errors);
     return res.redirect('/order');
   }
+  /**
   User.findOne({ email: userEmail }, function(err, user) {
     user.cuisine = req.body.cuisine;
     user.food = req.body.food;
@@ -163,16 +164,11 @@ exports.postOrder = function(req, res, next) {
         return next(err);
       }
     });
-    console.log(userEmail);
-    console.log(req.body.id);
-    console.log(req.body.cuisine);
-    console.log(req.body.food);
-    console.log(req.body.radius);
-    console.log(req.body.comments)
-    req.flash('success', { msg: 'The order has been heard!' });
+*/
+    req.flash('success', { msg: 'Success! Your order is being reviewed by chefs!' });
     res.redirect('/order_2');
-});
 };
+
 
   
 exports.postOrder_2 = function(req, res, next) {
