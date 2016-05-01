@@ -143,22 +143,19 @@ exports.postOrder = function(req, res, next) {
     return res.redirect('/order');
   }
 
-  User.findOne({ email: req.body.email }, function(err, existingUser) {
-    if (existingUser) {
-      existingUser.orderfood.cuisine = req.body.cuisine;
-      existingUser.orderfood.food = req.body.food;
-      existingUser.orderfood.radius = req.body.radius;
-      existingUser.orderfood.recipelink = req.body.recipe;
-      existingUser.orderfood.textcomments = req.body.comments;
-    }
-    existingUser.save(function(err) {
-      if (err) {
-        return next(err);
-      }
-      req.flash('errors', { msg: 'From not submitted successfully' });
-      res.redirect('/order');
+  User.findOneAndUpdate({ email: req.body.email }, 
+    { cuisine: req.body.cuisine,
+      food: req.body.food,
+      radius: req.body.radius,
+      recipelink: req.body.recipe,
+      textcomments: req.body.comments},
+       function(err, user) {
+
+        if (err) throw err;
+          req.flash('errors', { msg: 'From not submitted successfully' });
+          res.redirect('/order');
+
       });
-    });
     res.redirect('/order_2');
 };
 exports.postOrder_2 = function(req, res, next) {
