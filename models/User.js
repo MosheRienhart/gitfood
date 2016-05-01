@@ -25,7 +25,7 @@ var userSchema = new mongoose.Schema({
     radius: String,
     recipelink: String,
     textcomments: String
-  }
+  },
 
 
 //  profile: {

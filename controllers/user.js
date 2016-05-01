@@ -105,7 +105,14 @@ exports.postSignup = function(req, res, next) {
     gender: req.body.gender,
     location: req.body.location,
     website: req.body.website,
-    sitepos: req.body.sitepos     
+    sitepos: req.body.sitepos,  
+    orderfood: {
+      cuisine: "",
+      food: "",
+      radius: "",
+      recipelink: "",
+      textcomments: ""
+  },
   });
 
   User.findOne({ email: req.body.email }, function(err, existingUser) {
