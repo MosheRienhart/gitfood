@@ -132,6 +132,14 @@ exports.postOrder = function(req, res, next) {
 // Danush program this to update values from first step of form to the cloud
 res.redirect('/order_2');
 };
+exports.postOrder_2 = function(req, res, next) {
+// Danush program this
+res.redirect('/order_3');
+};
+exports.postOrderFinish = function(req, res, next) {
+// Danush program this
+res.redirect('/');
+};
 
 /**
  * GET /account
