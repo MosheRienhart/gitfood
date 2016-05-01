@@ -15,6 +15,6 @@ block content
               img(src='', alt='')
             .content
               p
-                | #{user.order} 
+                | #{user.name} + " - " + #{user.foodorder.food}
               p
-                button.btn.btn-default(type='button') Contact
+                button.btn.btn-default(type='button',onclick="window.open('auth/google', '_blank');") Contact
