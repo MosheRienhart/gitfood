@@ -150,12 +150,9 @@ exports.postOrder = function(req, res, next) {
       recipelink: req.body.recipe,
       textcomments: req.body.comments},
        function(err, user) {
-
         if (err) throw err;
-          req.flash('errors', { msg: 'From not submitted successfully' });
-          res.redirect('/order');
-
       });
+
     res.redirect('/order_2');
 };
 exports.postOrder_2 = function(req, res, next) {
