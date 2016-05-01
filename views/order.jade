@@ -58,6 +58,11 @@ block content
           input.form-control(type='text', name='recipelink', id='recipelink', placeholder='Link a recipe here', required)
     .row
       .form-group
+        label.col-sm-3.control-label(for='comments') Additional Comments
+        .col-sm-7
+        textarea#exampleTextarea.form-control(rows='3')
+    .row
+      .form-group
         .col-sm-offset-3.col-sm-7
             button.btn.btn-primary.btn-lg.btn-block.center-block(type='button')
               | Continue

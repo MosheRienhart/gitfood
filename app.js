@@ -125,7 +125,12 @@ app.post('/signup', userController.postSignup);
 app.get('/contact', contactController.getContact);
 app.post('/contact', contactController.postContact);
 app.get('/order', passportConfig.isAuthenticated, dashboardController.order);
+app.post('/order', userController.postOrder);
+app.get('/order_2', passportConfig.isAuthenticated, dashboardController.order_2)
+app.get('/order_3', passportConfig.isAuthenticated, dashboardController.order_3)
 app.get('/maker', userController.authenticateSeller, dashboardController.maker);
+app.get('/maker_2', userController.authenticateSeller, dashboardController.maker_2);
+app.get('/maker_3', userController.authenticateSeller, dashboardController.maker_3);
 app.get('/account', passportConfig.isAuthenticated, userController.getAccount);
 app.post('/account/profile', passportConfig.isAuthenticated, userController.postUpdateProfile);
 app.post('/account/password', passportConfig.isAuthenticated, userController.postUpdatePassword);
