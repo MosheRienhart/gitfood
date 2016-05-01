@@ -172,6 +172,7 @@ exports.isAuthenticated = function(req, res, next) {
   if (req.isAuthenticated()) {
     return next();
   }
+  req.flash('errors', { msg: 'Please login before continuing.' });
   res.redirect('/login');
 };
 

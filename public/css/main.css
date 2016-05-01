@@ -8820,8 +8820,11 @@ textarea {
 .fa {
   margin-right: 6px; }
 
-.page-header {
+h3 {
   margin-top: 60px;
+  text-aligned: center; }
+
+.page-header {
   text-align: center; }
 
 .container {
