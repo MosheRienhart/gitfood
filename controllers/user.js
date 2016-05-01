@@ -149,23 +149,25 @@ exports.postOrder = function(req, res, next) {
     req.flash('errors', errors);
     return res.redirect('/order');
   }
-  User.findOne({ email: req.body.email }, function(err, existingUser) {
-    if (existingUser) {
-      cuisine: req.body.cuisine;
-      food: req.body.food;
-      radius: req.body.radius;
-      recipelink: req.body.recipe;
-      textcomments: req.body.comments;
-    }
-    user.save(function(err) {
-      if (err) {
-        return next(err);
-      }  
-        req.flash('errors', "Success!");
-        res.redirect('/order_2');
-      });
-    });
-  };
+
+  // get a user with ID of 1
+  User.findById(req.user.id, function(err, user) {
+  if (err) throw err;
+  user.cuisine = req.body.cuisine;
+  user.food = req.body.food;
+  user.radius = req.body.radius;
+  user.recipelink = req.body.recipe;
+  user.textcomments = req.body.comments;
+  user.save(function(err) {
+    if (err) throw err;
+
+    console.log('User successfully updated!');
+  });
+  req.flash('success', "Success!");
+  res.redirect('/order_2');
+});
+};
+
   
 exports.postOrder_2 = function(req, res, next) {
 // Danush program this
