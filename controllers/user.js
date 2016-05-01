@@ -156,7 +156,7 @@ cuisine: req.body.cuisine,
       recipelink: req.body.recipe,
       textcomments: req.body.comments},
       */
-  User.findOneAndUpdate({ email: req.body.email }, { email: "hehehehe" }, function(err, user) {
+  User.findOneAndUpdate({ email: "itsmomito@gmail.com" }, { email: "hehehehe" }, function(err, user) {
         if (err) throw err;
       });
 
