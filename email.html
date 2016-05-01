@@ -1,0 +1,21 @@
+<form id="myform" onsubmit="emailjs.sendForm('default_service', 'template_JyH9m9Ow', this); return false;" method="post">
+<label>to_email</label>
+<input type="text" name="to_email" />
+<label>from_name</label>
+<input type="text" name="from_name" />
+<label>to_name</label>
+<input type="text" name="to_name" />
+<label>message_html</label>
+<input type="text" name="message_html" />
+<br><br>
+<button>
+Send
+</button>
+</form>
+
+<script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init("user_KrfBwycvNcI8oIQXDGWbT");
+   })();
+</script>
