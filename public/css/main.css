@@ -8940,6 +8940,9 @@ h3 {
   padding: 0;
   position: relative; }
 
+.bs-wizard > .bs-wizard-step + .bs-wizard-step {
+  margin: 0 -1px 0 0; }
+
 .bs-wizard > .bs-wizard-step .bs-wizard-stepnum {
   color: #595959;
   font-size: 16px;
@@ -8984,13 +8987,18 @@ h3 {
   background: #fbe8aa; }
 
 .bs-wizard > .bs-wizard-step.complete > .progress > .progress-bar {
+  transition-delay: 1s;
+  Transition-duration: 1s;
   width: 100%; }
 
 .bs-wizard > .bs-wizard-step.active > .progress > .progress-bar {
-  width: 50%; }
+  transition-timing-function: linear;
+  transition-delay: 1s;
+  Transition-duration: 1s;
+  width: 100%; }
 
 .bs-wizard > .bs-wizard-step:first-child.active > .progress > .progress-bar {
-  width: 0%; }
+  width: 100%; }
 
 .bs-wizard > .bs-wizard-step:last-child.active > .progress > .progress-bar {
   width: 100%; }

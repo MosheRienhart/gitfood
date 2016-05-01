@@ -29,19 +29,19 @@ block content
     input(type='hidden', name='_csrf', value=_csrf)
     .row
       .form-group
-        label.col-sm-3.control-label(for='Cuisine') Cuisine
+        label.col-sm-3.control-label(for='cuisine') Cuisine
         .col-sm-7
           input.form-control(type='text', name='cuisine', id='cuisine', placeholder='Thai', autofocus, required)
     .row
       .form-group
-        label.col-sm-3.control-label(for='Food') Food
+        label.col-sm-3.control-label(for='food') Food
         .col-sm-7
           input.form-control(type='text', name='food', id='food', placeholder='Coconut Curry Chicken', required)
     .row
       .form-group
         label.col-sm-3.control-label(for='radius') Search Radius
         .col-sm-7
-          select#exampleSelect1.form-control
+          select#radius.form-control
             option 5 miles
             option 10 miles
             option 15 miles
@@ -53,14 +53,14 @@ block content
 
     .row
       .form-group
-        label.col-sm-3.control-label(for='radius') Recipe Link
+        label.col-sm-3.control-label(for='recipelink') Recipe Link
         .col-sm-7
           input.form-control(type='text', name='recipelink', id='recipelink', placeholder='Link a recipe here', required)
     .row
       .form-group
-        label.col-sm-3.control-label(for='comments') Additional Comments
+        label.col-sm-3.control-label(for='textcomments') Additional Comments
         .col-sm-7
-          textarea#exampleTextarea.form-control(rows='3')
+          textarea#textcomments.form-control(name = 'textcomments', rows='3', placeholder='Any additional requests or information?')
     .row
       .form-group
         .col-sm-offset-3.col-sm-7

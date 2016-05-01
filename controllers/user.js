@@ -130,6 +130,47 @@ exports.postSignup = function(req, res, next) {
 
 exports.postOrder = function(req, res, next) {
 // Danush program this to update values from first step of form to the cloud
+  req.assert('cuisine', 'Please enter a type of food').notEmpty();
+  req.assert('food', 'Please enter what food you want').notEmpty();
+  req.assert('radius', 'nice')
+  req.assert('recipelink', 'Please provide some link or instructions').notEmpty();    
+  req.assert('textcomments', 'nice')  
+  req.sanitize('email').normalizeEmail({ remove_dots: false });
+
+  var errors = req.validationErrors();
+
+  if (errors) {
+    req.flash('errors', errors);
+    return res.redirect('/order');
+  }
+  var user_request = new User({
+    email: req.body.email,
+    cuisine: req.body.cuisine,
+    food: req.body.food,
+    radius: req.body.radius,
+    recipelink: req.body.recipe,
+    textcomments: req.body.comments
+
+  });
+
+  User.findOne({ email: req.body.email }, function(err, existingUser) {
+    if (existingUser) {
+      existingUser.cuisine = req.body.cuisine;
+      existingUser.food = req.body.food;
+      existingUser.radius = req.body.radius;
+      existingUser.recipelink = req.body.recipe;
+      existingUser.textcomments = req.body.comments;
+
+    }
+    user.save(function(err) {
+      if (err) {
+        return next(err);
+      }
+      req.flash('errors', { msg: 'From not submitted successfully' });
+      res.redirect('/order');
+      });
+    });
+  });
 res.redirect('/order_2');
 };
 exports.postOrder_2 = function(req, res, next) {
