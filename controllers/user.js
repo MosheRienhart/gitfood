@@ -153,7 +153,7 @@ exports.postOrder = function(req, res, next) {
 
       */
   User.findOneAndUpdate({ email: "itsmomito@gmail.com" }, 
-    {cuisine: req.body.cuisine,
+    {cuisine: "req.body.cuisine",
       food: req.body.food,
       radius: req.body.radius,
       recipelink: req.body.recipe,
