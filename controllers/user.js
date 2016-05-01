@@ -97,7 +97,14 @@ exports.postSignup = function(req, res, next) {
 
   var user = new User({
     email: req.body.email,
-    password: req.body.password
+    password: req.body.password,
+    age: req.body.age,
+    address: req.body.address,
+    cuisines: req.body.cuisines,
+    gender: = req.body.gender,
+    location: req.body.location,
+    website: req.body.website 
+      
   });
 
   User.findOne({ email: req.body.email }, function(err, existingUser) {
@@ -155,7 +162,7 @@ exports.postUpdateProfile = function(req, res, next) {
     user.cuisines = req.body.cuisines || '1';    
     user.gender = req.body.gender || '1';
     user.location = req.body.location || '1';
-    user.website = req.body.website || '';
+    user.website = req.body.website || '1';
     user.save(function(err) {
       if (err) {
         if (err.code === 11000) {

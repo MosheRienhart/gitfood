@@ -7,7 +7,6 @@ var userSchema = new mongoose.Schema({
   password: String,
   passwordResetToken: String,
   passwordResetExpires: Date,
-   name: { type: String },
     age: { type: String }, 
     address: { type: String }, 
     cuisines: { type: String },    
@@ -21,7 +20,11 @@ var userSchema = new mongoose.Schema({
   tokens: Array,
 
   profile: {
-
+    name: { type: String, default: '' },  
+    gender: { type: String, default: '' },
+    location: { type: String, default: '' },
+    website: { type: String, default: '' },
+    picture: { type: String, default: '' }
   }
 }, { timestamps: true });
 
