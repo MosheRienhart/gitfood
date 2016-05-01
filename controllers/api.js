@@ -1,6 +1,6 @@
 var _ = require('lodash');
 var async = require('async');
-exports.getMoxtraToken function (){
+exports.getMoxtraToken = function (){
         var access_token;
         var client_id = process.env.MOXTRA_ID;
         var client_secret = process.env.MOXTRA_SECRET;
@@ -55,7 +55,6 @@ exports.getMoxtraToken function (){
         }
 
         <!-- Start Meet Function  -->
-        <script type="text/javascript">
         function start_meet() {
             var meet_options = {
                 iframe: true, //To open the meet in the same window within an iFrame.
