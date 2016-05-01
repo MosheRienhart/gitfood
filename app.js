@@ -125,7 +125,7 @@ app.post('/signup', userController.postSignup);
 app.get('/contact', contactController.getContact);
 app.post('/contact', contactController.postContact);
 app.get('/order', passportConfig.isAuthenticated, dashboardController.order);
-app.post('/order', userController.postOrder);
+app.post('/order', passportConfig.isAuthenticated, userController.postOrder);
 app.get('/order_2', passportConfig.isAuthenticated, dashboardController.order_2)
 app.post('/order_2', userController.postOrder_2);
 app.get('/order_3', passportConfig.isAuthenticated, dashboardController.order_3)

@@ -150,13 +150,15 @@ exports.postOrder = function(req, res, next) {
     return res.redirect('/order');
   }
 /**
-cuisine: req.body.cuisine,
+
+      */
+  User.findOneAndUpdate({ email: req.body.email }, 
+    {cuisine: req.body.cuisine,
       food: req.body.food,
       radius: req.body.radius,
       recipelink: req.body.recipe,
       textcomments: req.body.comments},
-      */
-  User.findOneAndUpdate({ email: "itsmomito@gmail.com" }, { email: "hehehehe" }, function(err, user) {
+       function(err, user) {
         if (err) throw err;
       });
 
