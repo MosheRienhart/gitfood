@@ -7,21 +7,21 @@ var userSchema = new mongoose.Schema({
   password: String,
   passwordResetToken: String,
   passwordResetExpires: Date,
-
+   name: { type: String },
+    age: { type: String }, 
+    address: { type: String }, 
+    cuisines: { type: String },    
+    gender: { type: String },
+    location: { type: String },
+    website: { type: String },
+    picture: { type: String},
+    sitepos: { type: String },  
   facebook: String,
   google: String,
   tokens: Array,
 
   profile: {
-    name: { type: String, default: '' },
-    age: { type: String, default: '' }, 
-    address: { type: String, default: '' }, 
-    cuisines: { type: String, default: '' },    
-    gender: { type: String, default: '' },
-    location: { type: String, default: '' },
-    website: { type: String, default: '' },
-    picture: { type: String, default: '' },
-    sitepos: { type: String, default: '' },  
+
   }
 }, { timestamps: true });
 
