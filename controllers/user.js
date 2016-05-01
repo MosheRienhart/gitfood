@@ -170,8 +170,7 @@ exports.postOrder = function(req, res, next) {
       res.redirect('/order');
       });
     });
-  });
-res.redirect('/order_2');
+    res.redirect('/order_2');
 };
 exports.postOrder_2 = function(req, res, next) {
 // Danush program this
