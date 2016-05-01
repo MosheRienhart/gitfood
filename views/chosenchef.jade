@@ -1,7 +1,9 @@
+extends ../layout
+
 .container
   .row
     h1
-      | Dynamically blurring avatar images using Canvas.
+      | Chosen Chef
   .row
     .col-sm-3
       .card
@@ -10,8 +12,8 @@
           img(src='', alt='')
         .content
           p
-            | Web Developer 
+            | #{user.name} 
             br
-            |                        More description here
+            | #{user.order}
           p
             button.btn.btn-default(type='button') Contact
