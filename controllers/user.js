@@ -84,8 +84,8 @@ exports.postSignup = function(req, res, next) {
   req.assert('confirmPassword', 'Passwords do not match').equals(req.body.password);
   req.assert('age', 'Age cannot be blank').notEmpty();    
   req.assert('address', 'Address cannot be blank').notEmpty();  
-  req.assert('cuisines', 'Cuisine(s) cannot be blank').notEmpty();    
-  req.assert('sitepos', 'Status cannot be blank').notEmpty();
+  req.assert('cuisines', 'Cuisine(s) cannot be blank').notEmpty();   
+  req.assert('sitepos', 'Have to enter Buyer or Seller').equals("Buyer" || "Seller");
   req.sanitize('email').normalizeEmail({ remove_dots: false });
 
   var errors = req.validationErrors();
@@ -171,6 +171,9 @@ exports.postUpdateProfile = function(req, res, next) {
   });
 };
 
+exports.getSellerList = function(req,res){
+    
+}
 /**
  * POST /account/password
  * Update current password.
@@ -270,7 +273,7 @@ exports.getReset = function(req, res, next) {
 exports.postReset = function(req, res, next) {
   req.assert('password', 'Password must be at least 4 characters long.').len(4);
   req.assert('confirm', 'Passwords must match.').equals(req.body.password);
-
+  
   var errors = req.validationErrors();
 
   if (errors) {
