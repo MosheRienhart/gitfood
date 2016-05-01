@@ -86,7 +86,7 @@ exports.postSignup = function(req, res, next) {
   req.assert('age', 'Age cannot be blank').notEmpty();    
   req.assert('address', 'Address cannot be blank').notEmpty();  
   req.assert('cuisines', 'Cuisine(s) cannot be blank').notEmpty();   
-  req.assert('sitepos', 'Have to enter Buyer or Seller').equals("Buyer" || "Seller");
+  //req.assert('sitepos', 'Have to enter Buyer or Seller').equals("Seller");
   req.sanitize('email').normalizeEmail({ remove_dots: false });
 
   var errors = req.validationErrors();
