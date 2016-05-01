@@ -19,13 +19,13 @@ var userSchema = new mongoose.Schema({
   google: String,
   tokens: Array,
 
-  profile: {
-    name: { type: String, default: '' },  
-    gender: { type: String, default: '' },
-    location: { type: String, default: '' },
-    website: { type: String, default: '' },
-    picture: { type: String, default: '' }
-  }
+//  profile: {
+//    name: { type: String, default: '' },  
+//    gender: { type: String, default: '' },
+//    location: { type: String, default: '' },
+//    website: { type: String, default: '' },
+//    picture: { type: String, default: '' }
+//  }
 }, { timestamps: true });
 
 /**
