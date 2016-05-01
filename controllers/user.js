@@ -98,7 +98,15 @@ exports.postSignup = function(req, res, next) {
 
   var user = new User({
     email: req.body.email,
-    password: req.body.password
+    password: req.body.password,
+    age: req.body.age,
+    address: req.body.address,
+    cuisines: req.body.cuisines,
+    gender: req.body.gender,
+    location: req.body.location,
+    website: req.body.website,
+    sitepos: req.body.sitepos  
+      
   });
 
   User.findOne({ email: req.body.email }, function(err, existingUser) {
@@ -149,14 +157,14 @@ exports.postUpdateProfile = function(req, res, next) {
     if (err) {
       return next(err);
     }
-    user.email = req.body.email || '';
-    user.profile.name = req.body.name || '';
-    user.profile.age = req.body.age || '';
-    user.profile.address = req.body.address || '';
-    user.profile.cuisines = req.body.cuisines || '';    
-    user.profile.gender = req.body.gender || '';
-    user.profile.location = req.body.location || '';
-    user.profile.website = req.body.website || '';
+//    user.email = req.body.email || '1';
+//    user.name = req.body.name || '1';
+//    user.age = req.body.age || '1';
+//    user.address = req.body.address || '1';
+//    user.cuisines = req.body.cuisines || '1';    
+//    user.gender = req.body.gender || '1';
+//    user.location = req.body.location || '1';
+//    user.website = req.body.website || '1';
     user.save(function(err) {
       if (err) {
         if (err.code === 11000) {
@@ -173,7 +181,18 @@ exports.postUpdateProfile = function(req, res, next) {
 };
 
 exports.getSellerList = function(req,res){
-    
+    /*
+(XMLHttpRequest()
+    xhrGet.open("GET", 'https://api.mongolab.com/api/1/databases/gitfood/collections/users?apiKey=Q_JEMlpcAh-Ncr44F93GFDlDsTcYaCPE');
+    xhrGet.onreadystatechange = function(){
+      var response = JSON.parse(xhrGet.responseText);
+      for(var i = 0; i < response.length; i++){
+        var temp = response[i];
+        console.log(temp.visited.url);
+       // temp = respon  
+      }
+    })();
+    */
 }
 
 exports.authenticateSeller = function(req, res) {
