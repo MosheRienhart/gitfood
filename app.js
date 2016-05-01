@@ -131,7 +131,7 @@ app.get('/order_2', passportConfig.isAuthenticated, dashboardController.order_2)
 app.post('/order_2', userController.postOrder_2);
 app.get('/order_3', passportConfig.isAuthenticated, dashboardController.order_3)
 app.post('/order_3', userController.postOrderFinish);
-//app.get('/moxtra', dashboardController.moxtra);
+app.get('/moxtra', dashboardController.moxtra);
 app.get('/maker', userController.authenticateSeller, dashboardController.maker);
 app.get('/maker_2', userController.authenticateSeller, dashboardController.maker_2);
 app.get('/maker_3', userController.authenticateSeller, dashboardController.maker_3);

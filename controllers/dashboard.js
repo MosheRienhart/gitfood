@@ -32,9 +32,9 @@ exports.order_3= function(req, res) {
     title: 'Order Dashboard'
   });
 };
-/**
+
 exports.moxtra= function(req, res) {
   res.render('moxtra', {
     title: 'Moxtra Connection'
   });
-};*/
+};

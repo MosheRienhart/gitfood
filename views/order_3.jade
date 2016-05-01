@@ -25,15 +25,11 @@ block content
             .progress-bar
           a.bs-wizard-dot(href='#')
           .bs-wizard-info.text-center Time to eat!
- p .row
-  p  .form-group
-  p    .col-sm-offset-4.col-sm-4
-  p        a.btn.btn-default.btn-lg(href='/moxtra')
-  p            i.fa.fa-twitter.fa-fw
 
-  form.form-horizontal(id='order-form3', method='POST')
-    input(type='hidden', name='_csrf', value=_csrf)
-    form(method='POST')
+
+    form.form-horizontal(id='order-form3', method='POST')
+      input(type='hidden', name='_csrf', value=_csrf)
+      form(method='POST')
           input(type='hidden', name='_csrf', value=_csrf)
           script(
           src='https://checkout.stripe.com/checkout.js',
@@ -45,7 +41,7 @@ block content
           data-amount='13095')
 
 
-    form#myform(onsubmit="emailjs.sendForm('default_service', 'template_JyH9m9Ow', this); return false;", method='post')
+form#myform(onsubmit="emailjs.sendForm('default_service', 'template_JyH9m9Ow', this); return false;", method='post')
       label to_email
       input#email(type='text', name='to_email', placeholder='itsmomito@gmail.com')
       label from_name
