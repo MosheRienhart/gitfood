@@ -103,7 +103,8 @@ exports.postSignup = function(req, res, next) {
     cuisines: req.body.cuisines,
     gender: req.body.gender,
     location: req.body.location,
-    website: req.body.website 
+    website: req.body.website,
+    sitepos: req.body.sitepos  
       
   });
 
