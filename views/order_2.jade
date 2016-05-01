@@ -1,25 +1,39 @@
 extends layout
 
-block content
-  .page-header
-    h3 Maker Dashboard
-
-  form.form-horizontal(method='POST')
-    input(type='hidden', name='_csrf', value=_csrf)
-    .form-group
-      label(class='col-sm-2 control-label', for='name') Name
-      .col-sm-8
-        input.form-control(type='text', name='name', id='name', autofocus=true)
-    .form-group
-      label(class='col-sm-2 control-label', for='email') Email
-      .col-sm-8
-        input.form-control(type='text', name='email', id='email')
-    .form-group
-      label(class='col-sm-2 control-label', for='message') Body
-      .col-sm-8
-        textarea.form-control(name='message', id='message', rows='7')
-    .form-group
-      .col-sm-offset-2.col-sm-8
-        button.btn.btn-primary(type='submit')
-          i.fa.fa-envelope
-          | Send
+script(type='text/javascript').
+  var qualifList = [];
+  (function(){
+  xhrGet.open("GET", 'https://api.mongolab.com/api/1/databases/gitfood/collections/users?apiKey=Q_JEMlpcAh-Ncr44F93GFDlDsTcYaCPE');
+  xhrGet.onreadystatechange = function(){
+  var response = JSON.parse(xhrGet.responseText);
+  for(var i = 0; i < response.length; i++){
+  var n = response[i];
+  var name = n.name;
+  var cuisines = n.cuisines;
+  var status = n.sitepos;
+  console.log(name+"/"+cuisines+"/"+status);
+  //if(cuisines.)
+  qualifList[i]=n;
+  }
+  var length = qualifList.size();
+  for (user in qualifList){
+  (function(){$('row').append(
+  '<div class="col-sm-3">
+  <div class="card">
+  <canvas class="header-bg" width="250" height="70" id="header-blur"></canvas>
+  <div class="avatar">
+  <img src='+user.picture+'/>
+  </div>
+  <div class="content">
+  <p>'+ user.name +'<br>'+
+  user.cuisines+' - ' + user.location+ '</p>
+  <p><button type="button" class="btn btn-default" onclick=" ">Select</button></p>
+  </div>
+  </div>
+  </div>');})();
+  }
+.container
+  .row
+    h1
+      | Nearby Makers
+  .row
