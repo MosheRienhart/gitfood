@@ -180,6 +180,7 @@ exports.getSellerList = function(req,res){
       for(var i = 0; i < response.length; i++){
         var temp = response[i];
         console.log(temp.visited.url);
+       // temp = respon  
       }
     })();
 }
