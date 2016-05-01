@@ -3,23 +3,62 @@ extends layout
 block content
   .page-header
     h3 Order Dashboard
-
-  form.form-horizontal(method='POST')
+       .container
+      .row.bs-wizard(style='border-bottom:0;')
+        .col-xs-4.bs-wizard-step.active
+          .text-center.bs-wizard-stepnum Step 1
+          .progress
+            .progress-bar
+          a.bs-wizard-dot(href='#')
+          .bs-wizard-info.text-center Choose your recipe!
+        .col-xs-4.bs-wizard-step.disabled
+          // complete
+          .text-center.bs-wizard-stepnum Step 2
+          .progress
+            .progress-bar
+          a.bs-wizard-dot(href='#')
+          .bs-wizard-info.text-center Pick a Chef!
+        .col-xs-4.bs-wizard-step.disabled
+          // complete
+          .text-center.bs-wizard-stepnum Step 3
+          .progress
+            .progress-bar
+          a.bs-wizard-dot(href='#')
+          .bs-wizard-info.text-center Time to eat!
+  form.form-horizontal(id='order-form', method='POST')
     input(type='hidden', name='_csrf', value=_csrf)
-    .form-group
-      label(class='col-sm-2 control-label', for='name') Name
-      .col-sm-8
-        input.form-control(type='text', name='name', id='name', autofocus=true)
-    .form-group
-      label(class='col-sm-2 control-label', for='email') Email
-      .col-sm-8
-        input.form-control(type='text', name='email', id='email')
-    .form-group
-      label(class='col-sm-2 control-label', for='message') Body
-      .col-sm-8
-        textarea.form-control(name='message', id='message', rows='7')
-    .form-group
-      .col-sm-offset-2.col-sm-8
-        button.btn.btn-primary(type='submit')
-          i.fa.fa-envelope
-          | Send
+    .row
+      .form-group
+        label.col-sm-3.control-label(for='Cuisine') Cuisine
+        .col-sm-7
+          input.form-control(type='text', name='cuisine', id='cuisine', placeholder='Thai', autofocus, required)
+    .row
+      .form-group
+        label.col-sm-3.control-label(for='Food') Food
+        .col-sm-7
+          input.form-control(type='text', name='food', id='food', placeholder='Coconut Curry Chicken', required)
+    .row
+      .form-group
+        label.col-sm-3.control-label(for='radius') Search Radius
+        .col-sm-7
+          select#exampleSelect1.form-control
+            option 5 miles
+            option 10 miles
+            option 15 miles
+            option 25 miles
+            option 30 miles
+            option 35 miles
+            option 40 miles
+            option 50+
+
+    .row
+      .form-group
+        label.col-sm-3.control-label(for='radius') Recipe Link
+        .col-sm-7
+          input.form-control(type='text', name='recipelink', id='recipelink', placeholder='Link a recipe here', required)
+    .row
+      .form-group
+        .col-sm-offset-3.col-sm-7
+            button.btn.btn-primary.btn-lg.btn-block.center-block(type='button')
+              | Continue
+
