@@ -101,7 +101,7 @@ exports.postSignup = function(req, res, next) {
     age: req.body.age,
     address: req.body.address,
     cuisines: req.body.cuisines,
-    gender: = req.body.gender,
+    gender: req.body.gender,
     location: req.body.location,
     website: req.body.website 
       
