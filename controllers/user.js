@@ -149,21 +149,24 @@ exports.postOrder = function(req, res, next) {
     req.flash('errors', errors);
     return res.redirect('/order');
   }
-/**
-
-      */
-  User.findOneAndUpdate({ email: "itsmomito@gmail.com" }, 
-    {cuisine: "req.body.cuisine",
-      food: req.body.food,
-      radius: req.body.radius,
-      recipelink: req.body.recipe,
-      textcomments: req.body.comments},
-       function(err, user) {
-        if (err) throw err;
+  User.findOne({ email: req.body.email }, function(err, existingUser) {
+    if (existingUser) {
+      cuisine: req.body.cuisine;
+      food: req.body.food;
+      radius: req.body.radius;
+      recipelink: req.body.recipe;
+      textcomments: req.body.comments;
+    }
+    user.save(function(err) {
+      if (err) {
+        return next(err);
+      }  
+        req.flash('errors', "Success!");
+        res.redirect('/order_2');
       });
-
-    res.redirect('/order_2');
-};
+    });
+  };
+  
 exports.postOrder_2 = function(req, res, next) {
 // Danush program this
 res.redirect('/order_3');
