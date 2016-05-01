@@ -95,7 +95,7 @@ exports.postSignup = function(req, res, next) {
     req.flash('errors', errors);
     return res.redirect('/signup');
   }
-
+    position = req.body.sitepos;
   var user = new User({
     email: req.body.email,
     password: req.body.password,
@@ -207,6 +207,7 @@ exports.authenticateSeller = function(req, res) {
 exports.getLogin = function(req, res) {
   if (req.user) {
     return res.redirect('/');
+    position = req.body.sitepos;
   }
   res.render('account/login', {
     title: 'Login'

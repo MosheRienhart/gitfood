@@ -19,6 +19,7 @@ var sass = require('node-sass-middleware');
 var multer = require('multer');
 var upload = multer({ dest: path.join(__dirname, 'uploads') });
 
+
 /**
  * Load environment variables from .env file, where API keys and passwords are configured.
  *
@@ -105,7 +106,9 @@ app.use(function(req, res, next) {
   next();
 });
 app.use(express.static(path.join(__dirname, 'public'), { maxAge: 31557600000 }));
-
+app.get('/moxtra', function (req, res) {
+    res.render('moxtra', { ct: req._csrfToken });
+});
 /**
  * Primary app routes.
  */
