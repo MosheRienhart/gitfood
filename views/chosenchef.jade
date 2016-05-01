@@ -1,0 +1,19 @@
+extends ../layout
+
+.container
+  .row
+    h1
+      | Chosen Chef
+  .row
+    .col-sm-3
+      .card
+        canvas#header-blur.header-bg(width='250', height='70')
+        .avatar
+          img(src='', alt='')
+        .content
+          p
+            | #{user.name} 
+            br
+            | #{user.order}
+          p
+            button.btn.btn-default(type='button') Contact

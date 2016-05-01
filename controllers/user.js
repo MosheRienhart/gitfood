@@ -181,17 +181,22 @@ exports.postUpdateProfile = function(req, res, next) {
 };
 
 exports.getSellerList = function(req,res){
-    
+    var qualifList = [];
 (function(){
     xhrGet.open("GET", 'https://api.mongolab.com/api/1/databases/gitfood/collections/users?apiKey=Q_JEMlpcAh-Ncr44F93GFDlDsTcYaCPE');
     xhrGet.onreadystatechange = function(){
       var response = JSON.parse(xhrGet.responseText);
       for(var i = 0; i < response.length; i++){
-        var temp = response[i];
-        console.log(temp.visited.url);
-      
+        var n = response[i];  
+        var name = n.name;
+        var cuisines = n.cuisines;  
+        var status = n.sitepos;
+        console.log(name+"/"+cuisines+"/"+status);
+        //if(cuisines.)   
+        qualifList[i]=n;
       }
     }})();
+    
     
 }
 
