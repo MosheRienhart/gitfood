@@ -4,6 +4,7 @@ var crypto = require('crypto');
 var nodemailer = require('nodemailer');
 var passport = require('passport');
 var User = require('../models/User');
+var position = "Buyer";
 
 /**
  * GET /login
@@ -174,6 +175,24 @@ exports.postUpdateProfile = function(req, res, next) {
 exports.getSellerList = function(req,res){
     
 }
+
+exports.authenticateSeller = function(req, res) {
+    if (position == "Seller") {
+      return res.redirect('/maker')
+    }
+   req.flash('errors', { msg: 'You have not signed up to be a food preparer' });
+  //req.flash('errors', { msg: 'You are not a food preparer' });
+   res.redirect('/');
+};
+
+exports.getLogin = function(req, res) {
+  if (req.user) {
+    return res.redirect('/');
+  }
+  res.render('account/login', {
+    title: 'Login'
+  });
+};
 /**
  * POST /account/password
  * Update current password.
