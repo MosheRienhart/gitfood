@@ -23,8 +23,17 @@ exports.getApi = function(req, res) {
     title: 'API Examples'
   });
 };
+/**
+exports.getTotalCosts = function(req,res){
+      var postmates = new Postmates('cus_KmHDZu4a1v7N8k', '4cf9fce2-db6d-4bb7-81a3-2c6acc68c7b4');
+      var delivery = {
+        pickup_address: req.body.pickup_address,
+        dropoff_address: req.body.dropoff_address
+      };
+      var postmates_fee = postmates.quote(delivery, function(err, res) { return res.body.fee; // 799});
+      res.send(postmates_fee);
 
-
+    } */
 /**
  * GET /api/facebook
  * Facebook API example.
@@ -70,17 +79,6 @@ exports.getStripe = function(req, res) {
     publishableKey: process.env.STRIPE_PKEY
   });
 };
-
-exports.getCalculationApis = function(req,res) {
-      var postmates = new Postmates('cus_KmHDZu4a1v7N8k', '4cf9fce2-db6d-4bb7-81a3-2c6acc68c7b4');
-      var delivery = {
-        pickup_address: "UCLA, Los Angelos, CA",
-        dropoff_address: "UCSD, Los Angelos, CA"
-      };
-      postmates.quote(delivery, function(err, res) {
-        return res.body.fee; // 799
-      });
-}
 
 /**
  * POST /api/stripe
