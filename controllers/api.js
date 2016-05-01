@@ -71,6 +71,17 @@ exports.getStripe = function(req, res) {
   });
 };
 
+exports.getCalculationApis = function(req,res) {
+      var postmates = new Postmates('cus_KmHDZu4a1v7N8k', '4cf9fce2-db6d-4bb7-81a3-2c6acc68c7b4');
+      var delivery = {
+        pickup_address: "UCLA, Los Angelos, CA",
+        dropoff_address: "UCSD, Los Angelos, CA"
+      };
+      postmates.quote(delivery, function(err, res) {
+        return res.body.fee; // 799
+      });
+}
+
 /**
  * POST /api/stripe
  * Make a payment.
@@ -92,6 +103,7 @@ exports.postStripe = function(req, res, next) {
     res.redirect('/api/stripe');
   });
 };
+
 
 
 exports.getFileUpload = function(req, res, next) {

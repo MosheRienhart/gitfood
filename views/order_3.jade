@@ -25,10 +25,18 @@ block content
             .progress-bar
           a.bs-wizard-dot(href='#')
           .bs-wizard-info.text-center Time to eat!
+
   form.form-horizontal(id='order-form3', method='POST')
     input(type='hidden', name='_csrf', value=_csrf)
-    .row
-      .form-group
-        .col-sm-offset-3.col-sm-7
-            button.btn.btn-primary.btn-lg.btn-block.center-block(type='submit')
-              | Finish!
+    form(method='POST')
+          input(type='hidden', name='_csrf', value=_csrf)
+          script(
+          src='https://checkout.stripe.com/checkout.js',
+          class='stripe-button',
+          data-key=publishableKey,
+          data-image='http://i.imgur.com/bbNRs.png',
+          data-name='GitFood',
+          data-description='GitFood Chef Services ($130.95)',
+          data-amount='13095')
+
+        

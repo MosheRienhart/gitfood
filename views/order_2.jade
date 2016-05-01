@@ -26,13 +26,68 @@ block content
             .progress-bar
           a.bs-wizard-dot(href='#')
           .bs-wizard-info.text-center Time to eat!
-  form.form-horizontal(id='order-form2', method='POST')
-    input(type='hidden', name='_csrf', value=_csrf)
-    .row
-      .form-group
-        .col-sm-offset-3.col-sm-7
-            button.btn.btn-primary.btn-lg.btn-block.center-block(type='submit')
-              | Continue           
+  .container
+      .row
+        .col-sm-4
+          .card
+            canvas#header-blur.header-bg(width='250', height='70')
+            |                 
+            .avatar
+              img(src='http://i.imgur.com/CGlEs1X.jpg?1', alt='')
+            |                 
+            .content
+              p
+                | Moshe Rienhart
+                br
+                |                        Chinese, American - Los Angeles, CA
+              |                     
+              p
+                form.form-horizontal(id='order-form3', method='POST')
+                  input(type='hidden', name='_csrf', value=_csrf)
+                  .row
+                    .form-group
+                       button.btn.btn-primary(type='submit') Select
+        |         
+        .col-sm-4
+          .card
+            canvas#header-blur.header-bg(width='250', height='70')
+            |                 
+            .avatar
+              img(src='http://orig04.deviantart.net/aded/f/2013/066/c/2/profile_picture_by_naivety_stock-d5x8lbn.jpg', alt='')
+            |                 
+            .content
+              p
+                | Emanuel Rodriguez
+                br
+                |                       Mexican, French - Los Angeles, CA
+              |                     
+              p
+                form.form-horizontal(id='order-form3', method='POST')
+                  input(type='hidden', name='_csrf', value=_csrf)
+                  .row
+                    .form-group
+                       button.btn.btn-primary(type='submit') Select
+        |         
+        .col-sm-4
+          .card
+            canvas#header-blur.header-bg(width='250', height='70')
+            |                 
+            .avatar
+              img(src='http://orig12.deviantart.net/dfc1/f/2011/060/b/c/female_stock_023_by_animegirlfever_stock-d3aobnz.jpg', alt='')
+            |                 
+            .content
+              p
+                | Amanda Stewart
+                br
+                |                        Italian, French - Los Angeles, CA
+              |                     
+              p
+              form.form-horizontal(id='order-form3', method='POST')
+                input(type='hidden', name='_csrf', value=_csrf)
+                .row
+                  .form-group
+                      button.btn.btn-primary(type='submit') Select
+
 script(type='text/javascript').
   var qualifList = [];
   (function(){
