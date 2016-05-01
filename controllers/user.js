@@ -172,7 +172,7 @@ exports.postUpdateProfile = function(req, res, next) {
 };
 
 exports.getSellerList = function(req,res){
-    
+    /*
 (XMLHttpRequest()
     xhrGet.open("GET", 'https://api.mongolab.com/api/1/databases/gitfood/collections/users?apiKey=Q_JEMlpcAh-Ncr44F93GFDlDsTcYaCPE');
     xhrGet.onreadystatechange = function(){
@@ -183,6 +183,7 @@ exports.getSellerList = function(req,res){
        // temp = respon  
       }
     })();
+    */
 }
 /**
  * POST /account/password
