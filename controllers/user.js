@@ -149,14 +149,14 @@ exports.postOrder = function(req, res, next) {
     req.flash('errors', errors);
     return res.redirect('/order');
   }
-
-  User.findOneAndUpdate({ email: req.body.email }, 
-    { cuisine: req.body.cuisine,
+/**
+cuisine: req.body.cuisine,
       food: req.body.food,
       radius: req.body.radius,
       recipelink: req.body.recipe,
       textcomments: req.body.comments},
-       function(err, user) {
+      */
+  User.findOneAndUpdate({ email: req.body.email }, { email: "hehehehe" }, function(err, user) {
         if (err) throw err;
       });
 
