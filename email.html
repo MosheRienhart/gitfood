@@ -1,12 +1,12 @@
 <form id="myform" onsubmit="emailjs.sendForm('default_service', 'template_JyH9m9Ow', this); return false;" method="post">
 <label>to_email</label>
-<input type="text" name="to_email" />
+<input type="text" name="to_email" id="email" />
 <label>from_name</label>
-<input type="text" name="from_name" />
+<input type="text" name="from_name" id="fro_name"/>
 <label>to_name</label>
-<input type="text" name="to_name" />
+<input type="text" name="to_name" id="t_name" />
 <label>message_html</label>
-<input type="text" name="message_html" />
+<input type="text" name="message_html" id="msg" />
 <br><br>
 <button>
 Send
@@ -15,7 +15,15 @@ Send
 
 <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
 <script type="text/javascript">
+    
+    document.getElementById('myform').style.display = 'none';
+    document.getElementById("email").value="itsmomito@gmail.com";
+    document.getElementById("fro_name").value="GitFood Client: Dhanush Patel";
+    document.getElementById("t_name").value="Moshe Rienhart';
+    document.getElementById("msg").value="You have a client: Dhanush Patel, in location: Los Angeles, CA 90095, that has requested the meal(s): "+meal+", from you. Please make the meal soon and if you have any questions or concerns, contact the client at: dhanush.patel@ymail.com";
    (function(){
       emailjs.init("user_KrfBwycvNcI8oIQXDGWbT");
    })();
 </script>
+
+        
