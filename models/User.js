@@ -15,6 +15,7 @@ var userSchema = new mongoose.Schema({
     website: { type: String },
     picture: { type: String},
     sitepos: { type: String },  
+    order: String,
   facebook: String,
   google: String,
   tokens: Array,
