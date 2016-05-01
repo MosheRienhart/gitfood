@@ -192,7 +192,7 @@ exports.getSellerList = function(req,res){
         var cuisines = n.cuisines;  
         var status = n.sitepos;
         console.log(name+"/"+cuisines+"/"+status);
-        if(cuisines.)  
+        //if(cuisines.)   
         qualifList[i]=n;
       }
     }})();
