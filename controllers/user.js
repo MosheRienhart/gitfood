@@ -155,14 +155,14 @@ exports.postUpdateProfile = function(req, res, next) {
     if (err) {
       return next(err);
     }
-    user.email = req.body.email || '1';
-    user.name = req.body.name || '1';
-    user.age = req.body.age || '1';
-    user.address = req.body.address || '1';
-    user.cuisines = req.body.cuisines || '1';    
-    user.gender = req.body.gender || '1';
-    user.location = req.body.location || '1';
-    user.website = req.body.website || '1';
+//    user.email = req.body.email || '1';
+//    user.name = req.body.name || '1';
+//    user.age = req.body.age || '1';
+//    user.address = req.body.address || '1';
+//    user.cuisines = req.body.cuisines || '1';    
+//    user.gender = req.body.gender || '1';
+//    user.location = req.body.location || '1';
+//    user.website = req.body.website || '1';
     user.save(function(err) {
       if (err) {
         if (err.code === 11000) {
