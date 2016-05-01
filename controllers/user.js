@@ -130,7 +130,7 @@ exports.postSignup = function(req, res, next) {
 
 exports.postOrder = function(req, res, next) {
 // Danush program this to update values from first step of form to the cloud
-res.redirect('/order1');
+res.redirect('/order_2');
 };
 
 /**
