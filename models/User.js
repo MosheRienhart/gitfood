@@ -19,6 +19,14 @@ var userSchema = new mongoose.Schema({
   facebook: String,
   google: String,
   tokens: Array,
+  orderfood: {
+    cuisine: String,
+    food: String,
+    radius: String,
+    recipelink: String,
+    textcomments: String
+  }
+
 
 //  profile: {
 //    name: { type: String, default: '' },  

@@ -105,8 +105,7 @@ exports.postSignup = function(req, res, next) {
     gender: req.body.gender,
     location: req.body.location,
     website: req.body.website,
-    sitepos: req.body.sitepos  
-      
+    sitepos: req.body.sitepos     
   });
 
   User.findOne({ email: req.body.email }, function(err, existingUser) {
@@ -143,26 +142,16 @@ exports.postOrder = function(req, res, next) {
     req.flash('errors', errors);
     return res.redirect('/order');
   }
-  var user_request = new User({
-    email: req.body.email,
-    cuisine: req.body.cuisine,
-    food: req.body.food,
-    radius: req.body.radius,
-    recipelink: req.body.recipe,
-    textcomments: req.body.comments
-
-  });
 
   User.findOne({ email: req.body.email }, function(err, existingUser) {
     if (existingUser) {
-      existingUser.cuisine = req.body.cuisine;
-      existingUser.food = req.body.food;
-      existingUser.radius = req.body.radius;
-      existingUser.recipelink = req.body.recipe;
-      existingUser.textcomments = req.body.comments;
-
+      existingUser.orderfood.cuisine = req.body.cuisine;
+      existingUser.orderfood.food = req.body.food;
+      existingUser.orderfood.radius = req.body.radius;
+      existingUser.orderfood.recipelink = req.body.recipe;
+      existingUser.orderfood.textcomments = req.body.comments;
     }
-    user.save(function(err) {
+    existingUser.save(function(err) {
       if (err) {
         return next(err);
       }
